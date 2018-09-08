@@ -1,0 +1,230 @@
+<div class="jumbotron jumbotron-fluid margin-top-60 cover-background" style="background-image: url('assets/banner.jpg'); height:425px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="jumbo-div wow fadeIn">
+          <h3 class="text-white">E-Service</h3>
+          <p class="text-white">Everthing at your fingertips..</p>
+          <form id="jumbo-form" [formGroup]="jumboForm" (ngSubmit)="submitJumboForm()" ngNativeValidate>
+                  
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group text-white">
+                  <label for="city-form">Select City </label>
+                  <select form="jumbo-form" class="form-control jumbo-input" formControlName="city" id="city-form">
+                      <option>New Delhi</option>
+                      <option>Mumbai</option>
+                      <option>Gujarat</option>
+                      <option>Indore</option>
+                      <option>Hyderabad</option>
+                      <option>Bangalore</option>
+                      <option>Punjab</option>
+                      <option>Kolkata</option>
+                    </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group text-white">
+                  <label for="categ-form">Select Category </label>
+                  <select form="jumbo-form" class="form-control jumbo-input" formControlName="category" id="city-form">
+                      <option>Electrician</option>
+                      <option>Carpenter</option>
+                      <option>Pest Control</option>
+                      <option>Plumber</option>
+                      <option>Driver</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <div class="row padding-all-10">
+              <button type="submit" form="jumbo-form" class="btn btn-block jumbo-input" style="margin-top:-5px"> <i class="fa fa-search" aria-hidden="true"></i> &nbsp; Search Services </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      <div class="col-lg-6">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container padding-all-30 box-shadow bg-white">
+    <div class="row">
+      <div class="col-lg-9" style="margin-bottom: 40px">
+        <div class="padding-all-30 card bg-light-grey">
+
+          <!-- Newly Added Services -->
+          <h4> <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Newly added services </h4>
+          <hr>
+          <div class="row  padding-all-30">
+              <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.3s">
+                <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                  <div class="card-header bg-blue text-white">{{newAdded[2].name}}</div>
+                  <div class="card-body text-center">
+                    <img src="assets/circle-pic.png" class="circle-size">
+                    <br><br>
+                    <h6 class="card-title">Serivce : <b>{{newAdded[2].category}}</b></h6>
+                    <p style="margin-bottom:-1px">Rating - ({{newAdded[2].rating}} out of 5)</p>
+                    <img src="assets/{{newAdded[2].rating}}.png" class="rating-size"><br><br>
+                    <button class="btn btn-theme" (click)="gotoServiceman(newAdded[2].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.5s">
+                <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                  <div class="card-header bg-blue text-white">{{newAdded[1].name}}</div>
+                  <div class="card-body text-center">
+                    <img src="assets/circle-pic.png" class="circle-size">
+                    <br><br>
+                    <h6 class="card-title">Serivce : <b>{{newAdded[1].category}}</b></h6>
+                    <p style="margin-bottom:-1px">Rating - ({{newAdded[1].rating}} out of 5)</p>
+                    <img src="assets/{{newAdded[1].rating}}.png" class="rating-size"><br><br>
+                    <button class="btn btn-theme" (click)="gotoServiceman(newAdded[1].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                  </div>
+                </div>
+                </div>
+                <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.7s">
+                  <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                    <div class="card-header bg-blue text-white">{{newAdded[0].name}}</div>
+                    <div class="card-body text-center">
+                      <img src="assets/circle-pic.png" class="circle-size">
+                      <br><br>
+                      <h6 class="card-title">Serivce : <b>{{newAdded[0].category}}</b></h6>
+                      <p style="margin-bottom:-1px">Rating - ({{newAdded[0].rating}} out of 5)</p>
+                      <img src="assets/{{newAdded[0].rating}}.png" class="rating-size"><br><br>
+                      <button class="btn btn-theme" (click)="gotoServiceman(newAdded[0].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="text-center padding-all-10">
+            <button (click)="gotoservices()" class="btn btn-theme btn-block">See All Services</button>
+          </div>
+          <br><br>
+          <!-- Top Rated Services -->
+          <h4> <i class="fa fa-trophy" aria-hidden="true"></i> &nbsp; Top rated services </h4>
+          <hr>
+          <div class="row padding-all-30">
+              <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.1s">
+                <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                  <div class="card-header bg-blue text-white">{{highRated[0].name}}</div>
+                  <div class="card-body text-center">
+                    <img src="assets/circle-pic.png" class="circle-size">
+                    <br><br>
+                    <h6 class="card-title">Serivce : <b>{{highRated[0].category}}</b></h6>
+                    <p style="margin-bottom:-1px">Rating - ({{highRated[0].rating}} out of 5)</p>
+                    <img src="assets/{{highRated[0].rating}}.png" class="rating-size"><br><br>
+                    <button class="btn btn-theme" (click)="gotoServiceman(highRated[0].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.2s">
+                <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                  <div class="card-header bg-blue text-white">{{highRated[1].name}}</div>
+                  <div class="card-body text-center">
+                    <img src="assets/circle-pic.png" class="circle-size">
+                    <br><br>
+                    <h6 class="card-title">Serivce : <b>{{highRated[1].category}}</b></h6>
+                    <p style="margin-bottom:-1px">Rating - ({{highRated[1].rating}} out of 5)</p>
+                    <img src="assets/{{highRated[1].rating}}.png" class="rating-size"><br><br>
+                    <button class="btn btn-theme" (click)="gotoServiceman(highRated[1].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                  </div>
+                </div>
+                </div>
+                <div class="home-cards col-lg-4 col-md-12 wow slideInUp" data-wow-duration=".7s" data-wow-delay="0.3s">
+                  <div class="card mb-3 box-shadow" style="max-width: 18rem;">
+                    <div class="card-header bg-blue text-white">{{highRated[2].name}}</div>
+                    <div class="card-body text-center">
+                      <img src="assets/circle-pic.png" class="circle-size">
+                      <br><br>
+                      <h6 class="card-title">Serivce : <b>{{highRated[2].category}}</b></h6>
+                      <p style="margin-bottom:-1px">Rating - ({{highRated[2].rating}} out of 5)</p>
+                      <img src="assets/{{highRated[2].rating}}.png" class="rating-size"><br><br>
+                      <button class="btn btn-theme" (click)="gotoServiceman(highRated[2].email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <div class="text-center padding-all-10">
+            <button (click)="gotoservices()" class="btn btn-theme btn-block">See All Services</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="padding-all-30 card bg-light-grey text-left">
+          <h5><i class="fa fa-tasks" aria-hidden="true"></i> &nbsp; Quick Links</h5>
+          <hr>
+          
+          <p class="text-orange"><b><i class="fa fa-search" aria-hidden="true"></i> &nbsp; Searching options </b></p>
+          <p class="link"><a role="button" (click)="gotocity()"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; Search by Location</a></p>
+          <p class="link"><a role="button" (click)="gotocategory()"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; Search by Category</a></p>
+          <br>
+          <hr>
+          
+          <p class="text-orange"><b><i class="fa fa-star" aria-hidden="true"></i> &nbsp; Important links </b></p>
+          <p class="link"><a role="button" (click)="gotoservices()"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; View all Service</a></p>
+          <p class="link"><a role="button" (click)="gotoadmin()"><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; Admin Panel</a></p>
+          <p class="link"><a role="button" ><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; About Us</a></p>
+        </div>
+
+        <div class="card bg-light-grey text-left microsoft containDiv" style="margin-top:30px" *ngIf="newsOpt">
+          <div class="bg-orange text-white" style="z-index: 2; padding:5px">Latest Service Feeds</div>
+          <div class="marquee"> 
+            <div class="">
+              <div class="card" style="margin-top:20px">
+                <div class="card-header bg-blue text-white" style="padding:10px">
+                  <a class="feeLink" target="_blank" href="{{feed.posts[0].thread.url}}"><small>{{feed.posts[0].thread.title}}</small></a>
+                </div>
+                <div class="card-body" style="padding:0px;">
+                    <img style="height:100px; width:100%" src="{{feed.posts[0].thread.main_image}}">
+                  </div>
+              </div>
+              <div class="card" style="margin-top:20px">
+                  <div class="card-header bg-blue text-white" style="padding:10px">
+                    <a class="feeLink" target="_blank" href="{{feed.posts[10].thread.url}}"><small>{{feed.posts[10].thread.title}}</small></a>
+                  </div>
+                  <div class="card-body" style="padding:0px">
+                      <img style="height:100px; width:100%" src="{{feed.posts[10].thread.main_image}}">
+                    </div>
+                </div>
+                <div class="card" style="margin-top:20px">
+                    <div class="card-header bg-blue text-white" style="padding:10px">
+                      <a class="feeLink" target="_blank" href="{{feed.posts[20].thread.url}}"><small>{{feed.posts[20].thread.title}}</small></a>
+                    </div>
+                    <div class="card-body" style="padding:0px">
+                        <img style="height:100px; width:100%" src="{{feed.posts[20].thread.main_image}}">
+                      </div>
+                  </div>
+                  <div class="card" style="margin-top:20px">
+                      <div class="card-header bg-blue text-white" style="padding:10px">
+                        <a class="feeLink" target="_blank" href="{{feed.posts[30].thread.url}}"><small>{{feed.posts[30].thread.title}}</small></a>
+                      </div>
+                      <div class="card-body" style="padding:0px">
+                          <img style="height:100px; width:100%" src="{{feed.posts[30].thread.main_image}}">
+                        </div>
+                    </div>
+                    <div class="card" style="margin-top:20px">
+                        <div class="card-header bg-blue text-white" style="padding:10px">
+                          <a class="feeLink" target="_blank" href="{{feed.posts[40].thread.url}}"><small>{{feed.posts[40].thread.title}}</small></a>
+                        </div>
+                        <div class="card-body" style="padding:0px">
+                            <img style="height:100px; width:100%" src="{{feed.posts[40].thread.main_image}}">
+                          </div>
+                      </div>
+                      <div class="card" style="margin-top:20px">
+                          <div class="card-header bg-blue text-white" style="padding:10px">
+                            <a class="feeLink" target="_blank" href="{{feed.posts[50].thread.url}}"><small>{{feed.posts[50].thread.title}}</small></a>
+                          </div>
+                          <div class="card-body" style="padding:0px">
+                              <img style="height:100px; width:100%" src="{{feed.posts[50].thread.main_image}}">
+                            </div>
+                        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<p class="link"><a id="nice" role="button" [hidden]="true" (click)="getNews()" ><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp; Show News</a></p>
