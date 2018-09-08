@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <div class="card" style="margin:auto;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; margin-top:100px">
+      <div class="card-header bg-blue text-white">
+          <h6><i class="fa fa-edge text-orange" aria-hidden="true"></i>-<b>Service Login Form</b></h6>
+      </div>
+        <div class="card-body">
+      
+            <div class="form-group">
+              <label for="Username">Username</label>
+              <input required [(ngModel)]="user" type="Username" class="form-control" id="Username" aria-describedby="UsernameHelp" placeholder="Enter Username">
+              
+            </div>
+            <div class="form-group">
+              <label for="pass">Password</label>
+              <input required  [(ngModel)]="pass" type="password" class="form-control" id="pass" placeholder="Enter Password">
+            </div>
+            <input style="width: 100%;" type="submit" (click)="submitForm()" class="btn btn-theme" value="Log in">
+         
+      </div>
+    </div>
+  </div> 
+  <div class="col-lg-4"></div>
+</div>
