@@ -8,20 +8,29 @@ import com.dxc.Models.Database;
 import com.dxc.Models.DocumentMapper;
 import com.dxc.Models.Serviceman;
 
-
 public class ServicemanService {
 
 	static{
-
 		Database.connect();
 	}
 	
-	 public static ArrayList getAllServices()
+	 	public static ArrayList getAllServices()
 		{
 		 ArrayList servicemanList=Database.retreiveAllServicemen();
 		 return servicemanList;
 		}
 	 
+	 	public static ArrayList getNewAdded()
+		{
+		 ArrayList newAddedList=Database.retreiveNewAdded();
+		 return newAddedList;
+		}
+	 
+	 	public static ArrayList getHighRated()
+		{
+		 ArrayList highRatedList=Database.retreiveHighRated();
+		 return highRatedList;
+		}
 		
 		public static ArrayList getServiceByCity(String city)
 		{
@@ -53,4 +62,29 @@ public class ServicemanService {
 		    Database.addServiceman(stdDoc);	    
 		}
 	
+		public static ArrayList editService(String email, Serviceman newServ)
+		{
+			ArrayList serviceEdit = Database.editService(email, newServ);
+			return serviceEdit;
+		}
+		
+		public static boolean delete(String email)
+		{
+			boolean success;
+			ArrayList deletedArray=Database.deleteService(email);
+			if(deletedArray==null) {
+				success=false;
+			}
+			else {
+				success=true;
+			}
+			return success;
+		}
+		
+		public static ArrayList checkAdmin(String user, String pass)
+		{
+			ArrayList serviceByCombo=Database.checkAuth(user, pass);
+			return serviceByCombo;
+		}
+
 }

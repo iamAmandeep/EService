@@ -25,6 +25,17 @@ public class DocumentMapper {
 		
 	}
 	
+	public static Admin getAdmin(Document d) {
+		
+		Admin a = new Admin();
+		
+		a.setUser(d.getString("user"));
+		a.setPassword(d.getString("pass"));
+		
+		return a;
+		
+	}
+	
 	public static Document getDocument(Serviceman service)
 	{
 		
