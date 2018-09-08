@@ -1,0 +1,52 @@
+<div class="container card padding-all-30" style="margin-top: 100px; margin-bottom:30px">
+    
+    <h3 class="text-blue">Select Category</h3>
+    <br>
+    <div class="row">
+      <div class="col-lg-9">
+          <div class="form-group text-white">
+              <select [(ngModel)]="category" class="form-control jumbo-input" id="city-form">
+                  <option>Electrician</option>
+                  <option>Carpenter</option>
+                  <option>Pest Control</option>
+                  <option>Plumber</option>
+                  <option>Driver</option>
+                </select>
+            </div>
+      </div>
+      <div class="col-lg-3">
+        <button class="btn btn-theme btn-block" (click)="showServices()">Search</button>
+      </div>
+    </div>
+</div>  
+
+<div class="container card padding-all-30" style="margin-top:30px;" id="countDiv">
+  <h3 class="text-blue">Matching Results - 0</h3>
+</div>
+
+<div class="container">  
+<div class="card" style="margin-top:30px; display: none" id="hiddenCity">
+  <div class="card-header bg-blue text-white">
+    <h5>Following is the List of {{category}}s only</h5>
+  </div>
+  <div class="card-deck">
+    <div *ngFor="let x of allService">
+      <div class="row padding-all-30">
+          <div class="home-cards col-lg-3 col-md-6 col-sm-12 wow fadeIn">
+            <div class="card mb-3 box-shadow" style="max-width: 18rem; width:200px">
+              <div class="card-header bg-blue text-white">{{x.name}}</div>
+              <div class="card-body text-center">
+                <img src="assets/circle-pic.png" class="circle-size">
+                <br><br>
+                <h6 class="card-title">Serivce : <b>{{x.category}}</b></h6>
+                <p>Rating - ({{x.rating}} out of 5)</p>
+                <img src="./assets/{{x.rating}}.png" class="rating-size-{{x.rating}}"><br><br>
+                <button class="btn btn-theme" (click)="goService(x.email)"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; More Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

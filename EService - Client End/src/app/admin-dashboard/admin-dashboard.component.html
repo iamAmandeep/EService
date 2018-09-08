@@ -1,0 +1,34 @@
+<div class="container margin-top-80 card box-shadow padding-all-30">
+  <div class="row">
+    <div class="col-lg-6">
+      <button class="btn btn-theme btn-block"(click)="gotoAdd()"> Add servicemen </button>
+    </div>
+    <div class="col-lg-6">
+      <button class="btn btn-theme btn-block" (click)="getAServices()"> Show all servicemen </button>
+    </div>
+  </div>
+</div>
+
+<div class="container card bg-white margin-top-30 padding-all-30">
+ <div class="card-deck">
+   <div *ngFor="let x of allService">   
+    <div class="row">
+      <div class="col-lg-4 padding-all-10" id={{x.email}}>
+        <div class="box-shadow card padding-all-10" style="width:315px">
+          <div class="row">
+            <div class="col-lg-9">
+              <span>Name: &nbsp; <b>{{x.name}}</b> </span><br>
+              <span>Email : &nbsp; <b>{{x.email}}</b></span><br>
+              <span>Mobile : &nbsp; <b>{{x.mobile}}</b></span>
+            </div>
+            <div class="col-lg-3">
+              <button class="btn bg-orange btn-service text-white" (click)="gotoDelete(x.email)"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              <button class="btn bg-blue btn-service text-white" (click)="gotoEdit(x.email)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div> 
+  </div>
+</div>

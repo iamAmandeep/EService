@@ -1,0 +1,36 @@
+<div *ngFor="let x of serviceman">
+<div class="container margin-top-80 card box-shadow">
+  <div class="row">
+    <div class="col-lg-8 padding-all-30">
+      <h3 class="text-blue">{{x.name}}</h3>
+      <h6 class="text-blue">Category : &nbsp; {{x.category}}</h6>
+      <hr>
+      <h5> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; Contact Details </h5>
+      <ul>
+        <li>Location : &nbsp; {{x.city}}</li>
+        <li>Mobile Number : &nbsp; {{x.mobile}}</li>
+        <li>Email : &nbsp; {{x.email}}</li>
+      </ul>
+      <br>
+      <h5> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; Other Details </h5>
+      <ul>
+        <li>Experience : &nbsp; {{x.experience}} Years</li>
+        <li>Minimum visit charge : &nbsp; &#8377; {{x.rate}}</li>
+      </ul>
+
+    </div>
+    <div class="col-lg-4 padding-all-30 text-center">
+        <img src="./assets/circle-pic.png" class="circle-size">
+        <br><br>
+        <p class="bold">Rating - ({{x.rating}} out of 5)</p>
+        <img src="./assets/{{x.rating}}.png" class="rating-size-{{x.rating}}">
+                    
+    </div>
+  </div>
+  <div class="row padding-all-30">
+    
+      <button class="btn btn-theme btn-block" id="getter" (click)="show()"> Book Now </button>
+    
+  </div>
+</div>
+</div>
